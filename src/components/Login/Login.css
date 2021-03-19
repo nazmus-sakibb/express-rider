@@ -1,0 +1,12 @@
+.form-field {
+    width: 30%;
+    margin: auto;
+    border: 1px solid black;
+    padding: 20px;
+}
+
+hr {
+    text-align: center;
+    width: 30%;
+    border-bottom: 1px solid black;
+}
