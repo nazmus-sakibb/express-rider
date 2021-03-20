@@ -16,6 +16,7 @@ if (!firebase.apps.length) {
 const Login = () => {
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
     const [user, setUser] = useState({});
+    const [newUser, setNewUser] = useState(true);
 
 
     const history = useHistory();
@@ -45,15 +46,31 @@ const Login = () => {
     }
 
     const handleSubmit = (e) => {
-        // console.log(user.email, user.password);
-        if (user.email && user.password) {
-            console.log('submitting');
+        if (newUser && user.email && user.password) {
             firebase.auth().createUserWithEmailAndPassword(user.email, user.password)
                 .then(res => {
                     const newUserInfo = { ...user };
                     newUserInfo.error = '';
                     newUserInfo.success = true;
                     setUser(newUserInfo);
+                    updateUserName(user.name);
+                })
+                .catch((error) => {
+                    const newUserInfo = { ...user };
+                    newUserInfo.error = error.message;
+                    newUserInfo.success = false;
+                    setUser(newUserInfo);
+                });
+        }
+
+        if (!newUser && user.email && user.password) {
+            firebase.auth().signInWithEmailAndPassword(user.email, user.password)
+                .then(res => {
+                    const newUserInfo = { ...user };
+                    newUserInfo.error = '';
+                    newUserInfo.success = true;
+                    setUser(newUserInfo);
+                    console.log('signed in user info', res.user);
                 })
                 .catch((error) => {
                     const newUserInfo = { ...user };
@@ -82,12 +99,24 @@ const Login = () => {
         }
     }
 
+    const updateUserName = name => {
+        const user = firebase.auth().currentUser;
+
+        user.updateProfile({
+            displayName: name,
+        }).then(function () {
+            console.log('Username updated successfully')
+        }).catch(function (error) {
+            console.log(error);
+        });
+    }
+
     return (
         <div className="text-center">
             <div className="form-field">
                 <h2>Create an account</h2>
                 <form onSubmit={handleSubmit}>
-                    <input onBlur={handleBlur} name="name" type="text" placeholder="Name" required />
+                    {newUser && <input onBlur={handleBlur} name="name" type="text" placeholder="Name" required />}
                     <br />
                     <input onBlur={handleBlur} name="email" type="text" placeholder="Username or Email" required />
                     <br />
@@ -95,10 +124,12 @@ const Login = () => {
                     <br />
                     {/* <input type="password" name="password" id="" placeholder="Confirm Password" required />
                     <br/> */}
-                    <input type="submit" value="Create an account" />
+                    <input type="submit" value={newUser ? 'Create an account' : 'Login'} />
                 </form>
-                <p style={{color: 'red'}}>{user.error}</p>
-                {user.success && <p style={{color: 'green'}}>User created successfully</p>}
+                <input type="checkbox" onChange={() => setNewUser(!newUser)} name="newUser" id="" />
+                <label htmlFor="newUser">Already have an account?</label>
+                <p style={{ color: 'red' }}>{user.error}</p>
+                {user.success && <p style={{ color: 'green' }}>User {newUser ? 'Created' : 'Logged In'} Successfully</p>}
             </div>
             <hr />
             <button onClick={handleGoogleSignIn}>Continue with Google</button>

@@ -1,0 +1,26 @@
+[
+    {
+        "id": 1,
+        "name": "BIKE",
+        "image": "https://www.pngfind.com/pngs/m/110-1109055_png-bike-background-hd-for-picsart-baik-bag.png",
+        "price": 67
+    },
+    {
+        "id": 2,
+        "name": "CAR",
+        "image": "https://vectorforfree.com/wp-content/uploads/2019/04/BMW_Car_PNG_VectorForFree.jpg",
+        "price": 67
+    },
+    {
+        "id": 3,
+        "name": "BUS",
+        "image": "https://www.pikpng.com/pngl/m/26-269661_bus-png-image-scania-bus-png-clipart.png",
+        "price": 67
+    },
+    {
+        "id": 4,
+        "name": "TRAIN",
+        "image": "https://www.vhv.rs/dpng/d/106-1067783_indian-railway-train-png-transparent-png.png",
+        "price": 67
+    }
+]
