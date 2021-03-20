@@ -1,0 +1,13 @@
+.location-form {
+    background: lightgrey;
+    overflow: hidden;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.location-form button {
+    width: 97%;
+    background: salmon;
+    color: white;
+    border: 1px solid transparent;
+}

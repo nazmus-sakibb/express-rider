@@ -14,7 +14,7 @@ if (!firebase.apps.length) {
 
 
 const Login = () => {
-    const [loggedInUser, setLoggedInUser] = useContext(UserContext);
+    const [loggedInUser, setLoggedInUser, signedInUser, setSignedInUser] = useContext(UserContext);
     const [user, setUser] = useState({});
     const [newUser, setNewUser] = useState(true);
 
@@ -70,7 +70,8 @@ const Login = () => {
                     newUserInfo.error = '';
                     newUserInfo.success = true;
                     setUser(newUserInfo);
-                    console.log('signed in user info', res.user);
+                    setSignedInUser(newUserInfo);
+                    history.replace(from);
                 })
                 .catch((error) => {
                     const newUserInfo = { ...user };
@@ -126,8 +127,8 @@ const Login = () => {
                     <br/> */}
                     <input type="submit" value={newUser ? 'Create an account' : 'Login'} />
                 </form>
-                <input type="checkbox" onChange={() => setNewUser(!newUser)} name="newUser" id="" />
-                <label htmlFor="newUser">Already have an account?</label>
+                <input type="checkbox" onChange={() => setNewUser(!newUser)} id="newUser"/>
+                <label for="newUser">Already have an account?</label>
                 <p style={{ color: 'red' }}>{user.error}</p>
                 {user.success && <p style={{ color: 'green' }}>User {newUser ? 'Created' : 'Logged In'} Successfully</p>}
             </div>
