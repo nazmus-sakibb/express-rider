@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import transportData from '../data/data.json';
+import Header from '../Header/Header';
 import Transport from '../Transport/Transport';
 import './Home.css';
 
@@ -14,15 +15,15 @@ const Home = () => {
         setTransports(transportData);
     }, [])
     return (
-        <div className="home-bg">
-            <h2>This is home page</h2>
-            <h3>Transports: {transports.length}</h3>
-            <button><Link to='/book'>Details</Link></button>
-            <div className="row">
+        <div className="homeBg">
+            <Header/>
+            <Link to='/book'>Details</Link>
+            <div className="row transports-card">
                 {
                     transports.map(transport => <Transport transport={transport} key={transport.id}></Transport>)
                 }
             </div>
+
         </div>
     );
 };

@@ -2,25 +2,25 @@
     {
         "id": 1,
         "name": "BIKE",
-        "image": "https://www.pngfind.com/pngs/m/110-1109055_png-bike-background-hd-for-picsart-baik-bag.png",
+        "image": "https://static.autox.com/uploads/bikes/2020/10/bmw-g-310-r.jpg",
         "price": 67
     },
     {
         "id": 2,
         "name": "CAR",
-        "image": "https://vectorforfree.com/wp-content/uploads/2019/04/BMW_Car_PNG_VectorForFree.jpg",
+        "image": "https://bsmedia.business-standard.com/_media/bs/img/article/2018-10/29/full/1540830558-2954.jpg",
         "price": 67
     },
     {
         "id": 3,
         "name": "BUS",
-        "image": "https://www.pikpng.com/pngl/m/26-269661_bus-png-image-scania-bus-png-clipart.png",
+        "image": "https://528008-1681258-raikfcquaxqncofqfm.stackpathdns.com/wp-content/uploads/ebusco_30_front_01-1.jpg",
         "price": 67
     },
     {
         "id": 4,
         "name": "TRAIN",
-        "image": "https://www.vhv.rs/dpng/d/106-1067783_indian-railway-train-png-transparent-png.png",
+        "image": "https://www.sbsun.com/wp-content/uploads/2019/10/SBS-L-LOCOMOTIVE-1008-01-1.jpg",
         "price": 67
     }
 ]
