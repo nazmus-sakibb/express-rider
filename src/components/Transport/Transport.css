@@ -4,5 +4,15 @@
 }
 
 .transport-card {
-    /* background: white; */
+    border: 1px solid white;
+    background-color: white;
+    border-radius: 10px;
+    text-align: center;
+}
+
+
+@media (max-width: 768px){
+    .transport-card{
+        margin-bottom: 20px;
+    }
 }

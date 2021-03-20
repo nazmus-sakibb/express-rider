@@ -16,9 +16,7 @@ const Home = () => {
     }, [])
     return (
         <div className="homeBg">
-            <Header/>
-            <Link to='/book'>Details</Link>
-            <div className="row transports-card">
+            <div className="transports-card text-center">
                 {
                     transports.map(transport => <Transport transport={transport} key={transport.id}></Transport>)
                 }
