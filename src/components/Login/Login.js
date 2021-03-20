@@ -16,7 +16,7 @@ if (!firebase.apps.length) {
 const Login = () => {
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
     const [user, setUser] = useState({});
-    
+
 
     const history = useHistory();
     const location = useLocation();
@@ -44,25 +44,41 @@ const Login = () => {
             });
     }
 
-    const handleSubmit = () => {
-
+    const handleSubmit = (e) => {
+        // console.log(user.email, user.password);
+        if (user.email && user.password) {
+            console.log('submitting');
+            firebase.auth().createUserWithEmailAndPassword(user.email, user.password)
+                .then(res => {
+                    const newUserInfo = { ...user };
+                    newUserInfo.error = '';
+                    newUserInfo.success = true;
+                    setUser(newUserInfo);
+                })
+                .catch((error) => {
+                    const newUserInfo = { ...user };
+                    newUserInfo.error = error.message;
+                    newUserInfo.success = false;
+                    setUser(newUserInfo);
+                });
+        }
+        e.preventDefault();
     }
 
     const handleBlur = (e) => {
-        let isFormValid = true;
-        if(e.target.name === 'email'){
-            isFormValid = /\S+@\S+\.\S+/.test(e.target.value);
+        let isFieldValid = true;
+        if (e.target.name === 'email') {
+            isFieldValid = /\S+@\S+\.\S+/.test(e.target.value);
         }
-        if(e.target.name === 'password'){
+        if (e.target.name === 'password') {
             const isPasswordValid = e.target.value.length > 6;
             const passwordHasNumber = /\d{1}/.test(e.target.value);
-            isFormValid = isPasswordValid && passwordHasNumber;
+            isFieldValid = isPasswordValid && passwordHasNumber;
         }
-        if(isFormValid){
-            const newUser = {...user};
-            newUser[e.target.name] = e.target.value;
-            console.log(newUser);
-            setUser(newUser);
+        if (isFieldValid) {
+            const newUserInfo = { ...user };
+            newUserInfo[e.target.name] = e.target.value;
+            setUser(newUserInfo);
         }
     }
 
@@ -70,9 +86,6 @@ const Login = () => {
         <div className="text-center">
             <div className="form-field">
                 <h2>Create an account</h2>
-                <p>Name: {user.name}</p>
-                <p>Email: {user.email}</p>
-                <p>Password: {user.password}</p>
                 <form onSubmit={handleSubmit}>
                     <input onBlur={handleBlur} name="name" type="text" placeholder="Name" required />
                     <br />
@@ -82,10 +95,12 @@ const Login = () => {
                     <br />
                     {/* <input type="password" name="password" id="" placeholder="Confirm Password" required />
                     <br/> */}
-                    <input type="submit" value="Create an account"/>
+                    <input type="submit" value="Create an account" />
                 </form>
+                <p style={{color: 'red'}}>{user.error}</p>
+                {user.success && <p style={{color: 'green'}}>User created successfully</p>}
             </div>
-            <hr/>
+            <hr />
             <button onClick={handleGoogleSignIn}>Continue with Google</button>
         </div>
     );
