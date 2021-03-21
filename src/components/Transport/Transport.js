@@ -12,7 +12,7 @@ const Transport = (props) => {
     }
 
     return (
-        <div className="col-sm-12 transport-card" onClick={handleTransportClick}>
+        <div className="transport-card" onClick={handleTransportClick}>
             <img src={image} alt="" className="img-fluid" />
             <p>{name}</p>
         </div>

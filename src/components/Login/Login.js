@@ -35,12 +35,9 @@ const Login = () => {
                 setLoggedInUser(signedInUser);
                 history.replace(from);
             }).catch((error) => {
-                // Handle Errors here.
                 var errorCode = error.code;
                 var errorMessage = error.message;
-                // The email of the user's account used.
                 var email = error.email;
-                // The firebase.auth.AuthCredential type that was used.
                 var credential = error.credential;
             });
     }
@@ -106,7 +103,7 @@ const Login = () => {
         user.updateProfile({
             displayName: name,
         }).then(function () {
-            console.log('Username updated successfully')
+            // console.log('Username updated successfully')
         }).catch(function (error) {
             console.log(error);
         });
@@ -115,7 +112,8 @@ const Login = () => {
     return (
         <div className="text-center">
             <div className="form-field">
-                <h2>Create an account</h2>
+                <h2>{newUser ? 'Create an account' : 'Login'}</h2>
+                <h3>Email: {signedInUser.email}</h3>
                 <form onSubmit={handleSubmit}>
                     {newUser && <input onBlur={handleBlur} name="name" type="text" placeholder="Name" required />}
                     <br />
@@ -127,8 +125,8 @@ const Login = () => {
                     <br/> */}
                     <input type="submit" value={newUser ? 'Create an account' : 'Login'} />
                 </form>
-                <input type="checkbox" onChange={() => setNewUser(!newUser)} id="newUser"/>
-                <label for="newUser">Already have an account?</label>
+                <label for="newUser">{newUser ? "Already have an account?" : "Dont't have an account?"}</label>
+                <span onClick={() => setNewUser(!newUser)} className="toggle-form">{newUser ? 'Login' : 'Create an account'}</span>
                 <p style={{ color: 'red' }}>{user.error}</p>
                 {user.success && <p style={{ color: 'green' }}>User {newUser ? 'Created' : 'Logged In'} Successfully</p>}
             </div>

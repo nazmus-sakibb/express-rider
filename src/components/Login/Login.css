@@ -10,3 +10,8 @@ hr {
     width: 30%;
     border-bottom: 1px solid black;
 }
+
+.toggle-form {
+    color: orangered;
+    cursor: pointer;
+}
