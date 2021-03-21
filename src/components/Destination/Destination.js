@@ -1,12 +1,17 @@
 import React, { useState } from 'react';
 import GoogleMap from '../GoogleMap/GoogleMap';
 import './Destination.css';
+import Bike from '../../images/bike.jpg';
+import Car from '../../images/car.jpg';
+import Bus from '../../images/bus.jpg';
+import Train from '../../images/train.jpg';
 
 const Destination = () => {
 
     const [destination, setDestination] = useState(true);
     const [pickFrom, setPickFrom] = useState([]);
     const [pickTo, setPickTo] = useState([]);
+
 
     const handleBlurFrom = (e) => {
         setPickFrom(e.target.value);
@@ -30,14 +35,26 @@ const Destination = () => {
                     <br />
                     <button onClick={() => setDestination(!destination)}>Search</button>
                 </div>}
+
                 {!destination && <div className="destination-results">
-                    <h5 style={{marginBottom: '0'}}>Mirpur: {pickFrom} </h5>
-                    <span>To</span> 
-                    <h5>Dhanmondi: {pickTo}</h5>
+                    <h5 style={{ marginBottom: '0' }}>{pickFrom} </h5>
+                    <span>To</span>
+                    <h5>{pickTo}</h5>
                     <div>
+                    <div className="row transport-container">
+                            <div className="col-md-4">
+                                <img src={Bike} alt="" className="img-fluid" />
+                            </div>
+                            <div className="col-md-4">
+                                <p>Bike</p>
+                            </div>
+                            <div className="col-md-4">
+                                <p>$67</p>
+                            </div>
+                        </div>
                         <div className="row transport-container">
                             <div className="col-md-4">
-                                <p>Image</p>
+                                <img src={Car} alt="" className="img-fluid" />
                             </div>
                             <div className="col-md-4">
                                 <p>Car</p>
@@ -46,6 +63,29 @@ const Destination = () => {
                                 <p>$67</p>
                             </div>
                         </div>
+                        <div className="row transport-container">
+                            <div className="col-md-4">
+                                <img src={Bus} alt="" className="img-fluid" />
+                            </div>
+                            <div className="col-md-4">
+                                <p>Bus</p>
+                            </div>
+                            <div className="col-md-4">
+                                <p>$67</p>
+                            </div>
+                        </div>
+                        <div className="row transport-container">
+                            <div className="col-md-4">
+                                <img src={Train} alt="" className="img-fluid" />
+                            </div>
+                            <div className="col-md-4">
+                                <p>Train</p>
+                            </div>
+                            <div className="col-md-4">
+                                <p>$67</p>
+                            </div>
+                        </div>
+                        
                     </div>
                 </div>}
             </div>

@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
 import transportData from '../data/data.json';
-import Header from '../Header/Header';
 import Transport from '../Transport/Transport';
 import './Home.css';
 

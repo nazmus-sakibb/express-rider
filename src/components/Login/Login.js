@@ -113,7 +113,6 @@ const Login = () => {
         <div className="text-center">
             <div className="form-field">
                 <h2>{newUser ? 'Create an account' : 'Login'}</h2>
-                <h3>Email: {signedInUser.email}</h3>
                 <form onSubmit={handleSubmit}>
                     {newUser && <input onBlur={handleBlur} name="name" type="text" placeholder="Name" required />}
                     <br />

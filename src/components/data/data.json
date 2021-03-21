@@ -14,13 +14,13 @@
     {
         "id": 3,
         "name": "BUS",
-        "image": "https://528008-1681258-raikfcquaxqncofqfm.stackpathdns.com/wp-content/uploads/ebusco_30_front_01-1.jpg",
+        "image": "https://lh3.googleusercontent.com/proxy/4g-S92k6a9Krx0-i5MCym39i5pzxdD04CJoBrRL-fDHTPKt5uwxtFas9k5cMJBTEikwBDseW2WNVfslt-U8efPDDvreAlQXAiKaf_hnb1jYSXw0fab4",
         "price": 67
     },
     {
         "id": 4,
         "name": "TRAIN",
-        "image": "https://www.sbsun.com/wp-content/uploads/2019/10/SBS-L-LOCOMOTIVE-1008-01-1.jpg",
+        "image": "https://lh3.googleusercontent.com/proxy/b1Vs0vWVACIigjT_hjiULg6E_b1odebep070Y8Zmq5V6USpX0pCqfTnP2sbqVjcyfHU35ZaxoJwSZPQxU9saJjyvd0TCK_9TbZHWgg",
         "price": 67
     }
 ]
