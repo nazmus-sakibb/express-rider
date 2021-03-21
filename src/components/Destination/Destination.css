@@ -12,3 +12,12 @@
     border: 1px solid transparent;
     border-radius: 5px;
 }
+
+.transport-container {
+    background: white;
+    border-radius: 5px;
+}
+
+/* .destination-map {
+    height: 400px;
+} */

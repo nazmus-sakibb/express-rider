@@ -17,7 +17,7 @@ export class MapContainer extends Component {
       </Map>
     );
   }
-}
+} 
  
 export default GoogleApiWrapper({
   apiKey: ("AIzaSyCZx0cFSuE7dniHcCMLYgp8CqcXw2k9xyE")
