@@ -14,13 +14,13 @@
     {
         "id": 3,
         "name": "BUS",
-        "image": "https://i.pinimg.com/originals/d3/ab/7e/d3ab7e69dd4ed4daca74ee06633cc084.jpg",
+        "image": "https://www.seekpng.com/png/detail/336-3368280_easy-charter-bus-rentals-in-the-midwestern-u.png",
         "price": 67
     },
     {
         "id": 4,
         "name": "TRAIN",
-        "image": "https://lh3.googleusercontent.com/proxy/b1Vs0vWVACIigjT_hjiULg6E_b1odebep070Y8Zmq5V6USpX0pCqfTnP2sbqVjcyfHU35ZaxoJwSZPQxU9saJjyvd0TCK_9TbZHWgg",
+        "image": "https://lh3.googleusercontent.com/proxy/fsnBaCLfsFBmHpHsZezRq9SsV17s2p5n8namizMXi7NYRhsDRtLf21xVlTKZNXxU7ZbBJkVmwVVC8qtMyGqd_Yf5NA4KHUG1o3AFLg",
         "price": 67
     }
 ]
