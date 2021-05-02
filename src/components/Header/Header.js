@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import { Link } from 'react-router-dom';
 import { UserContext } from '../../App';
 import './Header.css';
 
@@ -11,7 +12,7 @@ const Header = () => {
             </div>
             <nav className="nav-bar me-5">
                 <ul className="d-flex flex-row m-0 p-0">
-                    <li>Home</li>
+                    <Link to="/home">Home</Link>
                     <li>Destination</li>
                     <li>Blog</li>
                     <li>Contact</li>
